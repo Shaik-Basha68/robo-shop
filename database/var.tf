@@ -22,3 +22,8 @@ variable "instance_tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "ssh_key" {
+  type        = string
+  description = "Path to the SSH key pair for accessing EC2 instances"
+}
