@@ -1,0 +1,30 @@
+# Core Terraform directories
+.terraform/
+
+# Hide local override files 
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Exclude all variable files (they often contain sensitive secrets/passwords)
+*.tfvars
+*.tfvars.json
+
+# Exclude override files as they are meant for local tweaks
+_override.tf
+_override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Include override files you do wish to add to version control
+!example_override.tf
+
+# Include micro-managed auto variables if safely abstracted
+# !.auto.tfvars
+
+# Hide CLI configuration files
+.terraformrc
+terraform.rc
