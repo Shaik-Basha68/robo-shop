@@ -21,7 +21,7 @@ resource "terraform_data" "mongo" {
   }
 
   provisioner "local-exec" {
-    when    = "create"
+    when    = create
     command = "echo ${self.input.private_ip} >> mongo_private_ip.txt && echo ${self.input.instance_id} >> mongo_instance_id.txt"
   }
   
