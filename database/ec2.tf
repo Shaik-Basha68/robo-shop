@@ -29,8 +29,7 @@ resource "terraform_data" "mongo" {
   connection {
     type        = "ssh"
     user        = "ubuntu"
-    password    = "Basha@6861"
-    #private_key = file(var.private_key_path)
+    private_key = file(var.ssh_key)
     host        = aws_instance.app2.private_ip
   }
 
