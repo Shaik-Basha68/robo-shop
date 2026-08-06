@@ -1,5 +1,5 @@
 output "aws_subnet_ids" {
-    value = nonsensitive(data.aws_ssm_parameter.private.value)
+    value = nonsensitive(data.aws_ssm_parameter.database.value)
 }
 
 output "data" {
