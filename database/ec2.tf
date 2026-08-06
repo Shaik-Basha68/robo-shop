@@ -4,6 +4,7 @@ resource "aws_instance" "app2" {
   instance_type = var.instance_type
   subnet_id     = local.mongo_subnet_id
   vpc_security_group_ids = [local.mongo_sg_id]
+  key_name = var.ssh_key
 
   tags = merge(
     var.instance_tags,
