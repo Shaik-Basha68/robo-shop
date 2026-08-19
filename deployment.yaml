@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-deployment
+  namespace: default
+spec:
+  replicas: 2
+  revisionHistoryLimit: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 10
+  selector:
+    matchLabels:
+      app: spring-pod
+  template:
+    metadata:
+      labels:
+        app: spring-pod
+    spec:
+      containers:
+        - name: spring-containers
+          image: mithuntechnologies/springboot-mongo-application:1
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "20m"
+              memory: "150Mi"
+            limits:
+              cpu: "30m"
+              memory: "200Mi"
+          env:
+            - name: MONGO_DB_HOSTNAME
+              value: mongo-service
+            - name: MONGO_DB_USERNAME
+              value: production
+            - name: MONGO_DB_PASSWORD
+              value: production@123
